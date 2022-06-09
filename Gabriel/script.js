@@ -1,3 +1,4 @@
+"use strict";
 //class Person{
 //    name: string;
 //    age: number;
@@ -11,10 +12,8 @@
 //        return `Hello there, My name is ${this.name} and I am ${this.age} years old, and I am a ${this.jobTitle}`
 //    }
 //}//
-
 //let person1 = new Person("Dominik", 2, "somthing");
 //console.log(person1.personen());//
-
 //class Job extends Person{
 //    salary: number;
 //    jobLocation: string;
@@ -22,7 +21,6 @@
 //        super(x, age, jobTitle)
 //        this.salary = salary;
 //        this.jobLocation = jobLocation;//
-
 //    }
 //    joby(){
 //        return `Hello there, My name is ${this.name} and I am ${this.age} years old, and I am a ${this.jobTitle} and I get ${this.salary} every month, and I work in ${this.jobLocation}`
@@ -31,17 +29,13 @@
 //}
 //let personJob = new Job("Dominik", 2, "somthing", 1500, "wien");
 //console.log(personJob.joby());
-
-
-class Vehicles{
-    name: string;
-    img: string;
-    constructor(name: string, img: string){
+class Vehicles {
+    constructor(name, img) {
         this.name = name;
         this.img = img;
         nesto.push(this);
     }
-    vehicle(){
+    vehicle() {
         return `
         <div class="col-4">
         <div class="card" style="width: 18rem;">
@@ -51,20 +45,16 @@ class Vehicles{
              </div>
         </div>
         </div>
-        `
+        `;
     }
 }
-
-
-class Types extends Vehicles{
-    city: string;
-    description: string;
-    constructor(name: string, img: string, city: string, description:string){
-        super(name, img)
+class Types extends Vehicles {
+    constructor(name, img, city, description) {
+        super(name, img);
         this.city = city;
         this.description = description;
     }
-    vehicle(){
+    vehicle() {
         return `
         <div class = "col"><div class="card" style="width: 18rem;">
           <div class="card-body">
@@ -72,15 +62,13 @@ class Types extends Vehicles{
             <p class="card-text">${this.description}</p>
             </div>
           </div>
-        </div>`
+        </div>`;
     }
 }
-
-
-const nesto : Array<Vehicles> = []
+const nesto = [];
 new Vehicles("Mercedes", "logo.png");
 new Types("Mercedes", "logo.png", "Germany", "The best");
-for(let vehicle of nesto){
-    (document.getElementById("druck") as HTMLElement).innerHTML +=
-    vehicle.vehicle()
+for (let vehicle of nesto) {
+    document.getElementById("druck").innerHTML +=
+        vehicle.vehicle();
 }
